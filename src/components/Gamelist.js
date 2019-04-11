@@ -61,8 +61,8 @@ class Gamelist extends React.Component {
 		.then(res => res.json())
 		.then(res => {
 			this.setState({
-				gameList: res
-			})
+				gameList: res			
+			})			
 		})
 	}
 
@@ -91,26 +91,25 @@ class Gamelist extends React.Component {
 				 			<p>Game #{game.gameNumber} of doubleheader</p>
 				 			}
 				 			{game.description && <h3>{game.description}</h3>}
-				 			<p><img src={`https://www.mlbstatic.com/team-logos/${game.teams.away.team.id}.svg`} 
-				 			className="team-logo"
-				 			alt={game.teams.away.team.name}
-				 			/>  {game.teams.away.team.name} <b>{game.teams.away.score}</b> | ({game.teams.away.leagueRecord.wins} - {game.teams.away.leagueRecord.losses}) <br />
-				 			<img src={`https://www.mlbstatic.com/team-logos/${game.teams.home.team.id}.svg`} 
-				 			className="team-logo"
-				 			alt={game.teams.home.team.name}
-				 			/>  {game.teams.home.team.name} <b>{game.teams.home.score}</b> | ({game.teams.home.leagueRecord.wins} - {game.teams.home.leagueRecord.losses})</p>
-					 			<div>
-						 			<Link to={`/game/${game.gamePk}`}>
-							 			{game.status.statusCode === 'F' && <small>Final</small>}
-							 			{game.status.statusCode === 'O' && <small>Final</small>}
-							 			{game.status.statusCode === 'FT' && <small>Final</small>}
-							 			{game.status.statusCode === 'I' && <small>Live</small>}
-							 			{game.status.statusCode === 'P' && <small>Preview</small>}
-							 			{game.status.statusCode === 'S' && <small>Preview</small>}
-							 			{game.status.statusCode === 'PW' && <small>Preview</small>}
-						 			</Link>
-						 			{game.status.statusCode === 'CR' && <small>Canceled/Rain</small>}
-					 			</div>
+				 			
+							<p><img src={`https://www.mlbstatic.com/team-logos/${game.teams.away.team.id}.svg`} className="team-logo" alt={game.teams.away.team.name} />
+							  {game.teams.away.team.name} <b>{game.teams.away.score}</b> | ({game.teams.away.leagueRecord.wins} - {game.teams.away.leagueRecord.losses}) <br />
+
+				 			<img src={`https://www.mlbstatic.com/team-logos/${game.teams.home.team.id}.svg`} className="team-logo" alt={game.teams.home.team.name} />
+							 {game.teams.home.team.name} <b>{game.teams.home.score}</b> | ({game.teams.home.leagueRecord.wins} - {game.teams.home.leagueRecord.losses})
+							</p>
+					 		<div>
+						 		<Link to={`/game/${game.gamePk}`}>
+							 		{game.status.statusCode === 'F' && <small>Final</small>}
+							 		{game.status.statusCode === 'O' && <small>Final</small>}
+							 		{game.status.statusCode === 'FT' && <small>Final</small>}
+							 		{game.status.statusCode === 'I' && <small>Live</small>}
+							 		{game.status.statusCode === 'P' && <small>Preview</small>}
+							 		{game.status.statusCode === 'S' && <small>Preview</small>}
+							 		{game.status.statusCode === 'PW' && <small>Preview</small>}
+						 		</Link>
+						 		{game.status.statusCode === 'CR' && <small>Canceled/Rain</small>}
+					 		</div>
 				 		</li>
 				 		)
 				 });

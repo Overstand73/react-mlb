@@ -28,6 +28,7 @@ class Gameinfo extends React.Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props.id);
 		let fetchGame = () => {
 		fetch(`https://statsapi.mlb.com/api/v2/game/${this.props.id}/feed/live`)
 		.then(res => res.json())

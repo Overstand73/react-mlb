@@ -24,7 +24,6 @@ class App extends Component {
         <Router basename="/react-mlb">
           <div>
             <Route exact path='/' render={(props) => <Header {...props} logo={logo} />} />
-
             <Route exact path='/' render={(props) => <Gamelist {...props} ball={ball} />} />
             <Route exact path='/game/:id' render={(props) => <Displaygame {...props} ball={ball} /> } />
             <Route exact path='/standings' render={(props) => <Standings {...props} ball={ball}/> }/>
